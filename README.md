@@ -5,10 +5,10 @@ Webpack 5 Starting template
 
 npm i
 
-### Development server
+## Development server
 
 npm run dev
 
-### Production build
+## Production build
 
 npm run build
