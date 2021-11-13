@@ -1,0 +1,30 @@
+//==============  FONT FAMILY  ==============//
+$font-default: "Roboto", sans-serif //----- Base font
+
+//==============  COLORS  ==============//
+$color-base: #456575       //----- Base color
+$color-accent: #5BAF57     //----- Accent color
+$color-placeholder: silver   //----- Placeholders color
+$color-success: green        //----- Success color
+$color-danger: red           //----- Danger color
+$color-text: black           //----- Standart text color
+$color-link: #456575       //----- Links color
+
+//==============  FONT SIZES  ==============//
+$fz-base: 16       //----- Base font size (px)
+$lh-base: 1.5      //----- Base line height
+
+//==============  FONT SIZES VARIABLES  ==============//
+=fz($fz)
+    font-size: $fz/$fz-base + rem
+
+=lh($lh)
+    line-height: $lh/$fz-base
+
+//==============  CUSTOMIZATION BOOTSTRAP GRID  ==============//
+//----- Vars from "app/libs/bootstrap/scss/_variables.scss"
+$grid-gutter-width: 32px //----- Gutters widths
+$grid-columns: 12        //----- Columns count
+
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 1024px, xl: 1200px)      //----- Breakpoints
+$container-max-widths: (sm: 576px, md: 768px, lg: 1024px, xl: 1170px)!default //----- Containers widths

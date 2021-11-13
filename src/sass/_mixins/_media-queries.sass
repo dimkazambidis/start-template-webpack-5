@@ -1,0 +1,37 @@
+//==============  MOBILE FIRST (min-width)  ==============//
+@mixin mq-mf($mq-breakpoint, $mq-breakpoints: $grid-breakpoints)
+	@if map-has-key($mq-breakpoints, $mq-breakpoint)
+		$mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
+	@media only screen and (min-width: #{$mq-breakpoint})
+		@content
+
+//==============  DESKTOP FIRST (max-width)  ==============//
+@mixin mq-df($mq-breakpoint, $mq-breakpoints: $grid-breakpoints)
+	@if map-has-key($mq-breakpoints, $mq-breakpoint)
+		$mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
+	@media only screen and (max-width: #{$mq-breakpoint - 1px})
+		@content
+
+//==============  MOBILE FIRST (min-height)  ==============//
+@mixin mqh-mf($mq-breakpoint, $min-height: 0, $mq-breakpoints: $grid-breakpoints)
+	@if map-has-key($mq-breakpoints, $mq-breakpoint)
+		$mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
+
+	@if $min-height == 0
+		@media only screen and (min-width: #{$mq-breakpoint})
+			@content
+	@else
+		@media only screen and (min-width: #{$mq-breakpoint}) and (min-height: $min-height)
+			@content
+
+//==============  DESKTOP FIRST (max-height)  ==============//
+@mixin mqh-df($mq-breakpoint, $min-height: 0, $mq-breakpoints: $grid-breakpoints)
+	@if map-has-key($mq-breakpoints, $mq-breakpoint)
+		$mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
+
+	@if $min-height == 0
+		@media only screen and (max-width: #{$mq-breakpoint - 1px})
+			@content
+	@else
+		@media only screen and (max-width: #{$mq-breakpoint - 1px}) and (max-height: $min-height)
+			@content

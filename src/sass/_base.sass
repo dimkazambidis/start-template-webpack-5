@@ -1,0 +1,109 @@
+/*===============  Base  ===============*/
+
+*
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    &:before, &:after
+        -webkit-box-sizing: border-box
+        -moz-box-sizing: border-box
+        box-sizing: border-box
+
+*::-webkit-input-placeholder
+    color: $color-placeholder
+    opacity: 1
+
+*:-moz-placeholder
+    color: $color-placeholder
+    opacity: 1
+
+*::-moz-placeholder
+    color: $color-placeholder
+    opacity: 1
+
+*:-ms-input-placeholder
+    color: $color-placeholder
+    opacity: 1
+
+html
+    font-size: $fz-base + px
+    line-height: $lh-base
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+    color: $color-danger
+body input:required:valid,
+body textarea:required:valid
+    color: $color-success
+
+body
+    min-width: 320px
+    position: relative
+    font-family: $font-default
+    overflow-x: hidden
+    color: $color-text
+    font-size: $fz-base + px
+    line-height: $lh-base
+
+h1, h2, h3, h4, h5, h6, p, ul, table, figure
+    &+h2, &+h3, &+h4, &+h5, &+h6, &+p, &+ul, &+table
+        margin: 1rem 0 0 0
+
+
+h1, h2, h3, h4, h5, h6
+    font-weight: 700
+    margin-bottom: 0 
+
+h1
+    +fz(64)
+
+h2
+    +fz(48)
+
+h3
+    +fz(32)
+
+h4
+    +fz(24)
+
+h5
+    +fz(18)
+
+h6
+    +fz(16)
+
+ul
+    padding-left: 1em
+    list-style: none
+    li
+        position: relative
+        &::before
+            content: "•"
+            display: inline-block
+            position: absolute
+            color: inherit
+            left: -1em
+            font-weight: 700
+    &.unstyled
+        margin: 0
+        padding: 0
+        li
+            &::before
+                content: none
+
+a
+    color: $color-link
+    &:hover
+        color: darken($color-link, 10%)
+
+.site
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+    overflow: hidden
+    padding-top: 3rem
+
+.img-responsive
+    display: block
+    max-width: 100%
+    height: auto
