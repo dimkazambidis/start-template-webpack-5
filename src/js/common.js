@@ -1,14 +1,15 @@
+import $ from 'jquery';
+
 /*!
  * Custom scripts
  */
 
 // If jQuery
-// $(function() {
-    
-// });
+$(function() {
+    $('h1').html('H1 heading. jQuery is Working!');
+});
 
 // If Native JS
-(function() {
-  let ggg = 'Hello World!!!';
-  console.log(ggg);
-}())
+// (function() {
+//   console.log('Hello World!!!');
+// }())
