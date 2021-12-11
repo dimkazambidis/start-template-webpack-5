@@ -2,56 +2,56 @@
 
 @import "vars"
 
-/*==========  Desktop First  ==========*/
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : map-get($grid-breakpoints, xl) - 1px)
-    /**/
-
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : map-get($grid-breakpoints, lg) - 1px)
-    /**/
-
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : map-get($grid-breakpoints, md) - 1px)
-    /**/
-
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : map-get($grid-breakpoints, sm) - 1px)
-    /**/
-
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width : 320px)
-    /**/
-
-
 /*==========  Mobile First  ==========*/
 
 /* Custom, iPhone Retina */
-@media only screen and (min-width : 320px)
+@include media-xs-mf
     /**/
 
 
 /* Extra Small Devices, Phones */
-@media only screen and (min-width : map-get($grid-breakpoints, sm))
+@include media-sm-mf
     /**/
 
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : map-get($grid-breakpoints, md))
+@include media-md-mf
     /**/
 
 
 /* Medium Devices, Desktops */
-@media only screen and (min-width : map-get($grid-breakpoints, lg))
+@include media-lg-mf
     /**/
 
 
 /* Large Devices, Wide Screens */
-@media only screen and (min-width : map-get($grid-breakpoints, xl))
+@include media-xl-mf
+    /**/
+   
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@include media-xl-df
+    /**/
+
+
+/* Medium Devices, Desktops */
+@include media-lg-df
+    /**/
+
+
+/* Small Devices, Tablets */
+@include media-md-df
+    /**/
+
+
+/* Extra Small Devices, Phones */
+@include media-sm-df
+    /**/
+
+
+/* Custom, iPhone Retina */
+@include media-xs-df
     /**/
 

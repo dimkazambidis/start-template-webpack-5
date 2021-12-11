@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MetaVariables = require('./project.config.js');
+const sortCSSmq = require('sort-css-media-queries');
 
 const PATHS = {
   src: path.join(__dirname, 'src'),
@@ -20,13 +21,19 @@ module.exports = {
   },
   devtool: 'source-map',
   optimization: {
+    chunkIds: 'named',
     minimize: false
+  },
+  devServer: {
+    watchFiles: {
+      paths: [PATHS.src]
+    }
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: 'babel-loader'
       }, {
         test: /\.(s*)[ac]ss$/i,
@@ -41,7 +48,9 @@ module.exports = {
               postcssOptions: {
                 plugins: [
                   'autoprefixer',
-                  'css-mqpacker'
+                  ['css-mqpacker', {
+                    sort: sortCSSmq
+                  }]
                 ]
               }
             }
@@ -58,7 +67,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         type: 'asset/resource',
         generator: {
-            filename: '[path][name].[ext]',
+          filename: '[path][name].[ext]',
         }
       }
     ]

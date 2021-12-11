@@ -1,37 +1,43 @@
 //==============  MOBILE FIRST (min-width)  ==============//
-@mixin mq-mf($mq-breakpoint, $mq-breakpoints: $grid-breakpoints)
-	@if map-has-key($mq-breakpoints, $mq-breakpoint)
-		$mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
-	@media only screen and (min-width: #{$mq-breakpoint})
-		@content
 
+@mixin media-xl-mf
+  @media (min-width: map-get($grid-breakpoints, xl))
+    @content
+
+@mixin media-lg-mf
+  @media (min-width: map-get($grid-breakpoints, lg))
+    @content
+
+@mixin media-md-mf
+  @media (min-width: map-get($grid-breakpoints, md))
+    @content
+
+@mixin media-sm-mf
+  @media (min-width: map-get($grid-breakpoints, sm))
+    @content
+
+@mixin media-xs-mf
+  @media (min-width: 320px)
+    @content
+	
 //==============  DESKTOP FIRST (max-width)  ==============//
-@mixin mq-df($mq-breakpoint, $mq-breakpoints: $grid-breakpoints)
-	@if map-has-key($mq-breakpoints, $mq-breakpoint)
-		$mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
-	@media only screen and (max-width: #{$mq-breakpoint - 1px})
-		@content
 
-//==============  MOBILE FIRST (min-height)  ==============//
-@mixin mqh-mf($mq-breakpoint, $min-height: 0, $mq-breakpoints: $grid-breakpoints)
-	@if map-has-key($mq-breakpoints, $mq-breakpoint)
-		$mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
+@mixin media-xl-df
+  @media (max-width: map-get($grid-breakpoints, xl) - 1px)
+    @content
 
-	@if $min-height == 0
-		@media only screen and (min-width: #{$mq-breakpoint})
-			@content
-	@else
-		@media only screen and (min-width: #{$mq-breakpoint}) and (min-height: $min-height)
-			@content
+@mixin media-lg-df
+  @media (max-width: map-get($grid-breakpoints, lg) - 1px)
+    @content
 
-//==============  DESKTOP FIRST (max-height)  ==============//
-@mixin mqh-df($mq-breakpoint, $min-height: 0, $mq-breakpoints: $grid-breakpoints)
-	@if map-has-key($mq-breakpoints, $mq-breakpoint)
-		$mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
+@mixin media-md-df
+  @media (max-width: map-get($grid-breakpoints, md) - 1px)
+    @content
 
-	@if $min-height == 0
-		@media only screen and (max-width: #{$mq-breakpoint - 1px})
-			@content
-	@else
-		@media only screen and (max-width: #{$mq-breakpoint - 1px}) and (max-height: $min-height)
-			@content
+@mixin media-sm-df
+  @media (max-width: map-get($grid-breakpoints, sm) - 1px)
+    @content
+
+@mixin media-xs-df
+  @media (max-width: 319px)
+    @content
