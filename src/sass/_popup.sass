@@ -1,0 +1,126 @@
+body.popup-on
+    max-height: 100%
+    overflow: hidden
+
+.scom-popup-list
+    display: none
+
+.scom-popup
+    overflow: hidden
+    visibility: hidden
+    opacity: 0
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 9999
+    transition: opacity .2s .25s, visibility .2s 25s
+    &.center
+        .scom-popup-container
+            align-items: center
+    &.top
+        .scom-popup-container
+            align-items: flex-start
+    &.bottom
+        .scom-popup-container
+            align-items: flex-end
+    &.left
+        .scom-popup-container
+            justify-content: flex-start
+    &.right
+        .scom-popup-container
+            justify-content: flex-end
+    &.visible
+        visibility: visible
+        opacity: 1
+        transition: opacity .2s, visibility .2s
+
+.scom-popup-darker
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(0, 0, 0, 0.75)
+
+.scom-popup-wrapper
+    padding: 20px
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    overflow: auto
+
+.scom-popup-container
+    display: flex
+    align-items: center
+    justify-content: center
+    min-height: 100%
+
+.scom-popup-main
+    opacity: 0
+    position: relative
+    background-color: #fff
+    padding: 20px
+    transition: all .25s
+
+.scom-popup.visible .scom-popup-main
+    opacity: 1
+    transition: all .25s .25s
+
+.scom-popup
+    &.center
+        .scom-popup-wrapper
+            .scom-popup-main
+                transform: scale(0.5)
+        &.visible
+            .scom-popup-wrapper
+                .scom-popup-main
+                    transform: scale(1)
+    &.top
+        .scom-popup-wrapper
+            padding-top: 0
+            overflow: hidden
+            .scom-popup-main
+                transform: translateY(-100%)
+        &.visible
+            .scom-popup-wrapper
+                .scom-popup-main
+                    transform: translateY(0)
+    &.bottom
+        .scom-popup-wrapper
+            padding-bottom: 0
+            overflow: hidden
+            .scom-popup-main
+                transform: translateY(100%)
+        &.visible
+            .scom-popup-wrapper
+                .scom-popup-main
+                    transform: translateY(0)
+    &.left
+        .scom-popup-wrapper
+            padding-left: 0
+            overflow: hidden
+            .scom-popup-main
+                transform: translateX(-100%)
+        &.visible
+            .scom-popup-wrapper
+                .scom-popup-main
+                    transform: translateX(0)
+    &.right
+        .scom-popup-wrapper
+            padding-right: 0
+            overflow: hidden
+            .scom-popup-main
+                transform: translateX(100%)
+        &.visible
+            .scom-popup-wrapper
+                .scom-popup-main
+                    transform: translateX(0)
+
+.scom-popup-close
+    position: absolute
+    top: 0
+    right: 0

@@ -2,12 +2,12 @@
 <html lang="ru">
 
 <head>
-    <%= require('html-loader!./parts/head.html').default %>
-</head>
+    <meta charset="utf-8"> <title>Title</title> <meta name="description" content="Description"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"> <link rel="shortcut icon" href="<%=require('html-loader!./images/favicon/favicon.ico')%> " type="image/x-icon"> <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon..png"> <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-touch-icon-72x72..png"> <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-touch-icon-114x114..png"> <meta name="theme-color" content="#ccc"> <meta name="msapplication-navbutton-color" content="#ccc"> <meta name="apple-mobile-web-app-status-bar-style" content="#ccc"> <meta name="format-detection" content="telephone=no">
+<link href="css/style.css?v=cccbe28ff939e25a7ba5" rel="stylesheet"></head>
 
 <body>
     <div class="site">
-        <%= require('html-loader!./parts/header.html').default %>
+        <header class="site-header"> Header may become fixed <nav class="site-nav"></nav> </header>
 
         <div class="site-primary">
             <main class="site-content">
@@ -108,7 +108,7 @@
             </main>
         </div>
 
-        <%= require('html-loader!./parts/footer.html').default %>
+        <footer class="site-footer">Footer pressed to the bottom</footer>
     </div>
-</body>
+<script src="js/scripts.js?v=cccbe28ff939e25a7ba5"></script></body>
 </html>

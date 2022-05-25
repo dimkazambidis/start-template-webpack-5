@@ -1,15 +1,16 @@
+// Modules
 import $ from 'jquery';
-
-/*!
- * Custom scripts
- */
+import {media, mediaEvent} from './modules/media.js';
+import Popup from './modules/popup.js';
 
 // If jQuery
-$(function() {
-    $('h1').html('H1 heading. jQuery is Working!');
-});
+// $(function() {
+
+// });
 
 // If Native JS
-// (function() {
-//   console.log('Hello World!!!');
-// }())
+(function() {
+
+    /** Standart Comment ******************************/
+
+}())

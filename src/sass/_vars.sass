@@ -18,8 +18,8 @@ $lh-base: 1.5      //----- Base line height
 =fz($fz)
     font-size: $fz/$fz-base + rem
 
-=lh($lh)
-    line-height: $lh/$fz-base
+=lh($lh, $fz)
+    line-height: $lh/$fz
 
 //==============  CUSTOMIZATION BOOTSTRAP GRID  ==============//
 //----- Vars from "app/libs/bootstrap/scss/_variables.scss"
@@ -27,4 +27,4 @@ $grid-gutter-width: 32px //----- Gutters widths
 $grid-columns: 12        //----- Columns count
 
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 1024px, xl: 1200px)      //----- Breakpoints
-$container-max-widths: (sm: 576px, md: 768px, lg: 1024px, xl: 1170px)!default //----- Containers widths
+$container-max-widths: (sm: 100%, md: 100%, lg: 100%, xl: 1170px)!default //----- Containers widths

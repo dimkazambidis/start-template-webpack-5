@@ -42,7 +42,6 @@ body
     min-width: 320px
     position: relative
     font-family: $font-default
-    overflow-x: hidden
     color: $color-text
     font-size: $fz-base + px
     line-height: $lh-base
@@ -50,7 +49,6 @@ body
 h1, h2, h3, h4, h5, h6, p, ul, table, figure
     &+h2, &+h3, &+h4, &+h5, &+h6, &+p, &+ul, &+table
         margin: 1rem 0 0 0
-
 
 h1, h2, h3, h4, h5, h6
     font-weight: 700
@@ -101,6 +99,4 @@ a
 .site
     display: flex
     flex-direction: column
-    min-height: 100vh
-    overflow: hidden
-    padding-top: 3rem
+    min-height: 100%
