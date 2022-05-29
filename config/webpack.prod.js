@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MetaVariables = require('../project.config.js');
+// const MetaVariables = require('../project.config.js');
 const sortCSSmq = require('sort-css-media-queries');
 
 const PATHS = {
@@ -13,25 +13,25 @@ const PATHS = {
 }
 
 const fs = require( 'fs' );
-const pages = fs.readdirSync( './src' );
+const pages = fs.readdirSync( './src/pages' );
 
 let htmlPages = [];
 pages.forEach( page => {
-  if ( page.endsWith( '.html' ) ) {
-    htmlPages.push( page.split( '.html' )[0] )
+  if ( page.endsWith( '.pug' ) ) {
+    htmlPages.push( page.split( '.pug' )[0] )
   }
 })
 
 let multipleHtmlPlugins = htmlPages.map( name => {
   return new HtmlWebpackPlugin({
-    template: `${PATHS.src}/${name}.html`,
+    template: `${PATHS.src}/pages/${name}.pug`,
     filename: `${name}.html`,
     scriptLoading: 'blocking', // Scripts from head to bottom
     minify: {
       collapseWhitespace: false
     },
-    viewport: MetaVariables.viewport,
-    themeColor: MetaVariables.themeColor
+    // viewport: MetaVariables.viewport,
+    // themeColor: MetaVariables.themeColor
   })
 });
 
@@ -54,15 +54,24 @@ module.exports = {
   },
   module: {
     rules: [
-      {
+      { // Pug Loader
+        test: /\.pug$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {
+              pretty: true,
+            }
+          },
+        ],
+      }, { // Js Loader
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
-      }, {
+      }, { // Sass, Css Loaders
         test: /\.(s*)[ac]ss$/i,
-        // exclude: /node_modules/,
         use: [
-          // 'style-loader',
           MiniCssExtractPlugin.loader,
           'css-loader',
           {
@@ -86,7 +95,7 @@ module.exports = {
             }
           }
         ]
-      }, {
+      }, { // Other Files Loaders
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         type: 'asset/resource',
         generator: {
@@ -96,7 +105,7 @@ module.exports = {
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin(), // Clean dist
+    new CleanWebpackPlugin(), // Clean dist
     new MiniCssExtractPlugin({
       filename: 'css/style.css?v=[hash]',
     }),

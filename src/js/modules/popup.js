@@ -121,14 +121,14 @@ export default function Popup( options = {} ) {
         let container = document.createElement( 'div' );
         let contentContainer = document.createElement( 'div' );
         
-        popup.classList.add( 'scom-popup', position );
+        popup.classList.add( 'cstm-popup', position );
         popup.setAttribute('data-popup-for', contentHasElement);
         popup.setAttribute('id', popupID);
         popup.setAttribute( 'data-popup-index', indexPopup() );
-        darker.classList.add( 'scom-popup-darker' );
-        wrapper.classList.add( 'scom-popup-wrapper' );
-        container.classList.add( 'scom-popup-container' );
-        contentContainer.classList.add( 'scom-popup-main' );
+        darker.classList.add( 'cstm-popup-darker' );
+        wrapper.classList.add( 'cstm-popup-wrapper' );
+        container.classList.add( 'cstm-popup-container' );
+        contentContainer.classList.add( 'cstm-popup-main' );
 
         popup.append( darker, wrapper );
         wrapper.append( container );
@@ -136,7 +136,7 @@ export default function Popup( options = {} ) {
 
         // if ( options.closeTemplate ) {
         //     let close = document.createElement( 'a' );
-        //     close.classList.add( 'scom-popup-close' );
+        //     close.classList.add( 'cstm-popup-close' );
         //     close.setAttribute( 'href', '#' );
         //     close.innerHTML = options.closeTemplate; // Tpl of close button
         //     contentContainer.append( close );
@@ -144,7 +144,7 @@ export default function Popup( options = {} ) {
 
         if ( contentHasElement ) {
             let placeholder = document.createElement( 'div' );
-            placeholder.classList.add( 'scom-popup-placeholder' );
+            placeholder.classList.add( 'cstm-popup-placeholder' );
             placeholder.setAttribute( 'from-id', popupID );
             content.before( placeholder );
             content.style.display = '';
@@ -173,7 +173,7 @@ export default function Popup( options = {} ) {
     }
 
     function popupIn( popup ) {
-        let popupsVisible = document.querySelectorAll('.scom-popup.visible');
+        let popupsVisible = document.querySelectorAll('.cstm-popup.visible');
         let popupsVisibleCount = popupsVisible.length;
 
         document.body.appendChild( popup );
@@ -224,9 +224,9 @@ export default function Popup( options = {} ) {
         
         // let header = document.getElementById( 'site-header' );
         let hasElement = Boolean( popup.getAttribute('data-popup-for') );
-        // let popupsVisible = document.querySelectorAll('.scom-popup.visible');
+        // let popupsVisible = document.querySelectorAll('.cstm-popup.visible');
         // let popupsVisibleCount = popupsVisible.length;
-        let content = popup.querySelector('.scom-popup-main').childNodes[0];
+        let content = popup.querySelector('.cstm-popup-main').childNodes[0];
         let placeholder;
     
         popup.classList.remove( 'visible' );
@@ -250,7 +250,7 @@ export default function Popup( options = {} ) {
         //     header.style.paddingRight = '';
         // }
 
-        // let popupsVisible = document.querySelectorAll('.scom-popup.visible');
+        // let popupsVisible = document.querySelectorAll('.cstm-popup.visible');
         // let popupsVisibleCount = popupsVisible.length;
         
         // console.log( popupsVisibleCount );
@@ -261,7 +261,7 @@ export default function Popup( options = {} ) {
         // }
         
         setTimeout( function() {
-            let popupsVisible = document.querySelectorAll('.scom-popup.visible');
+            let popupsVisible = document.querySelectorAll('.cstm-popup.visible');
             let popupsVisibleCount = popupsVisible.length;
 
             if ( popupsVisibleCount < 1 ) {
@@ -300,7 +300,7 @@ export default function Popup( options = {} ) {
     }
 
     function indexPopup() {
-        let popupsVisible = document.querySelectorAll('.scom-popup.visible');
+        let popupsVisible = document.querySelectorAll('.cstm-popup.visible');
         let popupsVisibleCount = popupsVisible.length;
         
         return popupsVisibleCount;

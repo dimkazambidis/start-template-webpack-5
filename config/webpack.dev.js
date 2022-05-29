@@ -2,9 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MetaVariables = require('../project.config.js');
-// const sortCSSmq = require('sort-css-media-queries');
 
 const PATHS = {
   src: path.join(__dirname, '../src'),
@@ -13,25 +11,25 @@ const PATHS = {
 }
 
 const fs = require( 'fs' );
-const pages = fs.readdirSync( './src' );
+const pages = fs.readdirSync( './src/pages' );
 
 let htmlPages = [];
 pages.forEach( page => {
-  if ( page.endsWith( '.html' ) ) {
-    htmlPages.push( page.split( '.html' )[0] )
+  if ( page.endsWith( '.pug' ) ) {
+    htmlPages.push( page.split( '.pug' )[0] )
   }
 })
 
 let multipleHtmlPlugins = htmlPages.map( name => {
   return new HtmlWebpackPlugin({
-    template: `${PATHS.src}/${name}.html`,
+    template: `${PATHS.src}/pages/${name}.pug`,
     filename: `${name}.html`,
     scriptLoading: 'blocking', // Scripts from head to bottom
     minify: {
       collapseWhitespace: false
     },
-    viewport: MetaVariables.viewport,
-    themeColor: MetaVariables.themeColor
+    // viewport: MetaVariables.viewport,
+    // themeColor: MetaVariables.themeColor
   })
 });
 
@@ -46,21 +44,14 @@ module.exports = {
     type: 'filesystem',
   },
   devtool: 'source-map',
-  // optimization: {
-  //   chunkIds: 'named',
-  //   minimize: true
-  // },
   devServer: {
     historyApiFallback: true,
     open: true,
     compress: true,
     hot: true,
-    // watchFiles: {
-    //   paths: [PATHS.src]
-    // }
     watchFiles: [
-      `${PATHS.src}/*.html`,
-      `${PATHS.src}/parts/**/*.html`,
+      `${PATHS.src}/pages/*.pug`,
+      `${PATHS.src}/pages/includes/**/*.pug`,
       `${PATHS.src}/sass/**/*.sass`,
       `${PATHS.src}/js/**/*.js`,
     ]
@@ -68,35 +59,28 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.pug$/,
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {
+              pretty: true,
+            }
+          },
+        ],
+      }, {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
       }, {
         test: /\.(s*)[ac]ss$/i,
-        // exclude: /node_modules/,
         use: [
-          // 'style-loader',
           MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader', // Befor sass-loader
-            // options: {
-            //   postcssOptions: {
-            //     plugins: [
-            //       'autoprefixer',
-            //       ['css-mqpacker', {
-            //         sort: sortCSSmq
-            //       }]
-            //     ]
-            //   }
-            // }
           }, {
-            loader: 'sass-loader', // Sfter postcss-loader
-            // options: {
-            //   sassOptions: {
-            //     outputStyle: 'expanded' // nested, expanded, compact, compressed
-            //   }
-            // }
+            loader: 'sass-loader', // After postcss-loader
           }
         ]
       }, {
@@ -109,7 +93,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin(), // Clean dist
     new MiniCssExtractPlugin({
       filename: 'css/style.css?v=[hash]',
     }),
@@ -120,6 +103,6 @@ module.exports = {
           to: 'images'
         }
       ]
-    })
+    }),
   ].concat( multipleHtmlPlugins )
 }

@@ -1,0 +1,103 @@
+doctype html
+html(lang="ru")
+    include includes/head.pug
+    body
+        .site
+            include includes/header.pug
+            .site-primary
+                .site-content
+                    section
+                        .container 
+                            img(src="images/img.png", alt="", style="max-width: 100%")
+
+                    section(style="padding-top: 3rem")
+                        .container
+                            h1 H1 heading
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                            h2 H2 heading
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                            h3 H3 heading
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                            h4 H4 heading
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                            h5 H5 heading
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                            h6 H6 heading
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                            h2 List default
+                            ul
+                                li
+                                    a(
+                                        href="#"
+                                        data-popup
+                                        data-popup-src="#popup-center"
+                                        data-popup-pos="center"
+                                    ) Popup Center
+                                li
+                                    a(
+                                        href="#"
+                                        data-popup
+                                        data-popup-src="#popup-top"
+                                        data-popup-pos="top"
+                                    ) Popup Top
+                                li
+                                    a(
+                                        href="#"
+                                        data-popup
+                                        data-popup-src="#popup-bottom"
+                                        data-popup-pos="bottom"
+                                    ) Popup Bottom
+                                li
+                                    a(
+                                        href="#"
+                                        data-popup
+                                        data-popup-src="#popup-left"
+                                        data-popup-pos="left"
+                                    ) Popup Left
+                                li
+                                    a(
+                                        href="#"
+                                        data-popup
+                                        data-popup-src="#popup-right"
+                                        data-popup-pos="right"
+                                    ) Popup Right
+                                li
+                                    a(
+                                        href="#"
+                                        data-popup
+                                    ) Popup Default
+
+                            h2 List unstyled (class="unstyled")
+                            ul.unstyled
+                                li Lorem ipsum
+                                li Lorem ipsum
+                                li Lorem ipsum
+                                li Lorem ipsum
+                                li Lorem ipsum
+                                li Lorem ipsum
+
+            include includes/footer.pug
+
+            #popup-top Popup Top
+                div
+                    a(href="#" data-popup-close) Close 
+            #popup-left Popup Left
+                div
+                    a(href="#" data-popup-close) Close 
+            #popup-right Popup Right
+                div
+                    a(href="#" data-popup-close) Close 
+            #popup-bottom Popup Bottom
+                div
+                    a(href="#" data-popup-close) Close 
+            #popup-center Popup Center
+                div
+                    a(href="#" data-popup-close) Close 
